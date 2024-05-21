@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SE\\SE104_Student_management\\src_code\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|d:\\se\\se104_student_management\\src_code\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\modify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\modify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\dangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\dangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\dang_nhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\dang_nhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\quenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\quenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\quenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\quenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\dangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\dangky.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\dang_nhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\dang_nhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LAPTOP_P0OHVEG9/QLHS/True/SqlTable/dbo.HSinh.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|D:\\SE\\SE104_Student_management\\src_code\\windowsformsapp2\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31123C3E-CDF8-44C7-84AE-90F0FF2308DC}|WindowsFormsApp2\\WindowsFormsApp2.csproj|solutionrelative:windowsformsapp2\\conection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "dbo.HSinh [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/LAPTOP_P0OHVEG9/QLHS/True/SqlTable/dbo.HSinh.sql",
+              "ToolTip": "dbo.HSinh [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-16T18:12:41.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Taikhoan.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Taikhoan.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\Taikhoan.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Taikhoan.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\Taikhoan.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAADwvxQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T18:02:45.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "modify.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\modify.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\modify.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\modify.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\modify.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwBYAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T17:57:20.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "quenmatkhau.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\quenmatkhau.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\quenmatkhau.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\quenmatkhau.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\quenmatkhau.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAIwCAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T17:57:54.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "dangky.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dangky.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\dangky.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dangky.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\dangky.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAiwHEAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T17:40:15.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dangky.cs [Design]",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dangky.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\dangky.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dangky.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp2\\dangky.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T17:40:13.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "dang_nhap.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dang_nhap.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\dang_nhap.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dang_nhap.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\dang_nhap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:54:49.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dang_nhap.cs [Design]",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dang_nhap.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\dang_nhap.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\dang_nhap.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp2\\dang_nhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:54:47.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "quenmatkhau.cs [Design]",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\quenmatkhau.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\quenmatkhau.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\quenmatkhau.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp2\\quenmatkhau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:44:54.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "conection.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\conection.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\conection.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\conection.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\conection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:41:27.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\Form1.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Form1.cs",
+              "RelativeToolTip": "WindowsFormsApp2\\Form1.cs",
+              "ViewState": "AQIAADQBAAAAAAAAAAAUwEkBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:35:35.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp2\\Form1.cs",
+              "ToolTip": "D:\\SE\\SE104_Student_management\\src_code\\WindowsFormsApp2\\Form1.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp2\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T13:35:35.659Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
