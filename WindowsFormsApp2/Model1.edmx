@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Diem_HS">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+            <PropertyRef Name="idMonHoc" />
+          </Key>
+          <Property Name="idHocSinh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idMonHoc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="idHocKy" Type="varchar" MaxLength="10" />
+          <Property Name="Diem15" Type="float" />
+          <Property Name="Diem45" Type="float" />
+        </EntityType>
+        <EntityType Name="H_KY">
+          <Key>
+            <PropertyRef Name="idHocKy" />
+          </Key>
+          <Property Name="idHocKy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenHK" Type="nvarchar" MaxLength="10" />
+          <Property Name="TG_BD" Type="smalldatetime" />
+          <Property Name="TG_KT" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="HSinh">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+          </Key>
+          <Property Name="idHocSinh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaLop" Type="varchar" MaxLength="50" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="HoVaTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="NgayGioSinh" Type="smalldatetime" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="STT" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="IdLop" />
+          </Key>
+          <Property Name="IdLop" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdGVCN" Type="varchar" MaxLength="50" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="20" />
+          <Property Name="SiSo" Type="int" />
+          <Property Name="Khoi" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="MAMH" />
+          </Key>
+          <Property Name="MAMH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENMH" Type="nvarchar" MaxLength="40" />
+          <Property Name="Truong_MH" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Diem_HS__idHocKy__60A75C0F">
+          <End Role="H_KY" Type="Self.H_KY" Multiplicity="0..1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="H_KY">
+              <PropertyRef Name="idHocKy" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diem_HS__idHocSi__5EBF139D">
+          <End Role="HSinh" Type="Self.HSinh" Multiplicity="1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idHocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diem_HS__idMonHo__5FB337D6">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MAMH" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SchoolModelStoreContainer">
+          <EntitySet Name="Diem_HS" EntityType="Self.Diem_HS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="H_KY" EntityType="Self.H_KY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HSinh" EntityType="Self.HSinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Diem_HS__idHocKy__60A75C0F" Association="Self.FK__Diem_HS__idHocKy__60A75C0F">
+            <End Role="H_KY" EntitySet="H_KY" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diem_HS__idHocSi__5EBF139D" Association="Self.FK__Diem_HS__idHocSi__5EBF139D">
+            <End Role="HSinh" EntitySet="HSinh" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diem_HS__idMonHo__5FB337D6" Association="Self.FK__Diem_HS__idMonHo__5FB337D6">
+            <End Role="MONHOC" EntitySet="MONHOC" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Diem_HS">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+            <PropertyRef Name="idMonHoc" />
+          </Key>
+          <Property Name="idHocSinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idMonHoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idHocKy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Diem15" Type="Double" />
+          <Property Name="Diem45" Type="Double" />
+          <NavigationProperty Name="H_KY" Relationship="Self.FK__Diem_HS__idHocKy__60A75C0F" FromRole="Diem_HS" ToRole="H_KY" />
+          <NavigationProperty Name="HSinh" Relationship="Self.FK__Diem_HS__idHocSi__5EBF139D" FromRole="Diem_HS" ToRole="HSinh" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK__Diem_HS__idMonHo__5FB337D6" FromRole="Diem_HS" ToRole="MONHOC" />
+        </EntityType>
+        <EntityType Name="H_KY">
+          <Key>
+            <PropertyRef Name="idHocKy" />
+          </Key>
+          <Property Name="idHocKy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenHK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TG_BD" Type="DateTime" Precision="0" />
+          <Property Name="TG_KT" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Diem_HS" Relationship="Self.FK__Diem_HS__idHocKy__60A75C0F" FromRole="H_KY" ToRole="Diem_HS" />
+        </EntityType>
+        <EntityType Name="HSinh">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+          </Key>
+          <Property Name="idHocSinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaLop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HoVaTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgayGioSinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diem_HS" Relationship="Self.FK__Diem_HS__idHocSi__5EBF139D" FromRole="HSinh" ToRole="Diem_HS" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="IdLop" />
+          </Key>
+          <Property Name="IdLop" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdGVCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TenLop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SiSo" Type="Int32" />
+          <Property Name="Khoi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="MAMH" />
+          </Key>
+          <Property Name="MAMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENMH" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Truong_MH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diem_HS" Relationship="Self.FK__Diem_HS__idMonHo__5FB337D6" FromRole="MONHOC" ToRole="Diem_HS" />
+        </EntityType>
+        <Association Name="FK__Diem_HS__idHocKy__60A75C0F">
+          <End Role="H_KY" Type="Self.H_KY" Multiplicity="0..1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="H_KY">
+              <PropertyRef Name="idHocKy" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diem_HS__idHocSi__5EBF139D">
+          <End Role="HSinh" Type="Self.HSinh" Multiplicity="1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idHocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diem_HS__idMonHo__5FB337D6">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="1" />
+          <End Role="Diem_HS" Type="Self.Diem_HS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="MAMH" />
+            </Principal>
+            <Dependent Role="Diem_HS">
+              <PropertyRef Name="idMonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLHSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Diem_HS" EntityType="Self.Diem_HS" />
+          <EntitySet Name="H_KY" EntityType="Self.H_KY" />
+          <EntitySet Name="HSinhs" EntityType="Self.HSinh" />
+          <EntitySet Name="Lops" EntityType="Self.Lop" />
+          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
+          <AssociationSet Name="FK__Diem_HS__idHocKy__60A75C0F" Association="Self.FK__Diem_HS__idHocKy__60A75C0F">
+            <End Role="H_KY" EntitySet="H_KY" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diem_HS__idHocSi__5EBF139D" Association="Self.FK__Diem_HS__idHocSi__5EBF139D">
+            <End Role="HSinh" EntitySet="HSinhs" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diem_HS__idMonHo__5FB337D6" Association="Self.FK__Diem_HS__idMonHo__5FB337D6">
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+            <End Role="Diem_HS" EntitySet="Diem_HS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="QLHSEntities">
+          <EntitySetMapping Name="Diem_HS">
+            <EntityTypeMapping TypeName="SchoolModel.Diem_HS">
+              <MappingFragment StoreEntitySet="Diem_HS">
+                <ScalarProperty Name="idHocSinh" ColumnName="idHocSinh" />
+                <ScalarProperty Name="idMonHoc" ColumnName="idMonHoc" />
+                <ScalarProperty Name="idHocKy" ColumnName="idHocKy" />
+                <ScalarProperty Name="Diem15" ColumnName="Diem15" />
+                <ScalarProperty Name="Diem45" ColumnName="Diem45" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="H_KY">
+            <EntityTypeMapping TypeName="SchoolModel.H_KY">
+              <MappingFragment StoreEntitySet="H_KY">
+                <ScalarProperty Name="idHocKy" ColumnName="idHocKy" />
+                <ScalarProperty Name="TenHK" ColumnName="TenHK" />
+                <ScalarProperty Name="TG_BD" ColumnName="TG_BD" />
+                <ScalarProperty Name="TG_KT" ColumnName="TG_KT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HSinhs">
+            <EntityTypeMapping TypeName="SchoolModel.HSinh">
+              <MappingFragment StoreEntitySet="HSinh">
+                <ScalarProperty Name="idHocSinh" ColumnName="idHocSinh" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgayGioSinh" ColumnName="NgayGioSinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lops">
+            <EntityTypeMapping TypeName="SchoolModel.Lop">
+              <MappingFragment StoreEntitySet="Lop">
+                <ScalarProperty Name="IdLop" ColumnName="IdLop" />
+                <ScalarProperty Name="IdGVCN" ColumnName="IdGVCN" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="SiSo" ColumnName="SiSo" />
+                <ScalarProperty Name="Khoi" ColumnName="Khoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOCs">
+            <EntityTypeMapping TypeName="SchoolModel.MONHOC">
+              <MappingFragment StoreEntitySet="MONHOC">
+                <ScalarProperty Name="MAMH" ColumnName="MAMH" />
+                <ScalarProperty Name="TENMH" ColumnName="TENMH" />
+                <ScalarProperty Name="Truong_MH" ColumnName="Truong_MH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
