@@ -34,10 +34,14 @@ namespace GiaoDien
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
+            // TODO: This line of code loads data into the 'qLHSDataSet.H_KY' table. You can move, or remove it, as needed.
+            this.h_KYTableAdapter.Fill(this.qLHSDataSet.H_KY);
+            // TODO: This line of code loads data into the 'qLHSDataSet1.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Fill(this.qLHSDataSet1.MONHOC);
+            // TODO: This line of code loads data into the 'qLHSDataSet.H_KY' table. You can move, or remove it, as needed.
+            this.h_KYTableAdapter.Fill(this.qLHSDataSet.H_KY);
+            reportViewer1.RefreshReport();
+            this.reportViewer2.RefreshReport();
         }
 
         private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +104,42 @@ namespace GiaoDien
                 g.DrawImage(tabImage, imageX, imageY);
             }
 
+
+        }
+        private void tabControl2_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = (TabControl)sender;
+            Graphics g = e.Graphics;
+            Brush _textBrush;
+
+            TabPage _tabPage = tabControl.TabPages[e.Index];
+            Rectangle _tabBounds = tabControl.GetTabRect(e.Index);
+
+            _textBrush = new SolidBrush(SystemColors.ControlText);
+            Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+
+            // Vẽ văn bản với khoảng cách
+            Rectangle textBounds = _tabBounds;
+            textBounds.Offset(-20, 3); // Dịch chuyển văn bản xuống một chút
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, textBounds, _stringFlags);
+
+            // Đo kích thước của văn bản
+            SizeF textSize = g.MeasureString(_tabPage.Text, _tabFont);
+
+            // Tính toán vị trí mới cho ảnh
+            float imageX = _tabBounds.Right - 20 - (tabControl.ImageList.ImageSize.Width); // 20 là khoảng cách giữa ảnh và viền phải của tab
+            float imageY = _tabBounds.Top + (_tabBounds.Height - tabControl.ImageList.ImageSize.Height) / 2;
+
+
+            // Vẽ ảnh từ ImageList của tabControl
+            if (e.Index < tabControl.ImageList.Images.Count)
+            {
+                System.Drawing.Image tabImage = tabControl.ImageList.Images[e.Index];
+                g.DrawImage(tabImage, imageX, imageY);
+            }
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -215,53 +255,156 @@ namespace GiaoDien
         {
 
         }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
+        private void reportViewer1_Load_1(object sender, EventArgs e)
         {
+            // Thiết lập đường dẫn đến tệp .rdlc
+            
+        }
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (this.reportViewer1.Visible == false)
+            {
+                this.reportViewer1.Visible = true;
+            }
+
             this.reportViewer1.LocalReport.ReportPath = "C:\\Users\\kimta\\Documents\\Zalo Received Files\\WindowsFormsApp3\\WindowsFormsApp2\\WindowsFormsApp2\\rpttkmon.rdlc";
 
-            using (var context = new QLHSEntities()) // Tên context của bạn
+            // Sử dụng context để lấy dữ liệu từ cơ sở dữ liệu
+            using (var context = new BCcontext())
             {
-                // Lấy danh sách lớp
-                var lopList = context.Lops.ToList();
+                // Lấy giá trị đã chọn từ ComboBox học kỳ và môn học
+                string hocKyId = comboBox1.SelectedValue?.ToString();
+                string monHocId = comboBox2.SelectedValue?.ToString();
 
-                // Tạo DataTable để chứa dữ liệu báo cáo
-                DataTable reportTable = new DataTable();
-                reportTable.Columns.Add("STT", typeof(int));
-                reportTable.Columns.Add("Lop", typeof(string));
-                reportTable.Columns.Add("SiSo", typeof(int));
-                reportTable.Columns.Add("SoLuongDat", typeof(int));
-                reportTable.Columns.Add("TiLe", typeof(double));
-
-                // Tính toán dữ liệu cho từng lớp
-                int stt = 1;
-                foreach (var lop in lopList)
+                if (hocKyId != null && monHocId != null)
                 {
-                    string maLop = lop.IdLop;
-                    var students = context.HSinhs.Where(h => h.MaLop == maLop).ToList();
-                    int siSo = students.Count;
+                    // Lấy danh sách các idHocSinh thỏa mãn điều kiện học kỳ và môn học đã chọn
+                    var studentIds = context.Diem_HS
+                        .Where(d => d.MONHOC.TENMH == monHocId && d.H_KY.TenHK == hocKyId && d.Diem15 >= 5 && d.Diem45 >= 5)
+                        .Select(d => d.idHocSinh)
+                        .Distinct()
+                        .ToList();
 
-                    // Lấy danh sách các idHocSinh
-                    var studentIds = students.Select(s => s.idHocSinh).ToList();
+                    // Lấy thông tin lớp và số lượng học sinh
+                    var reportData = context.HSinhs
+                        .Where(h => studentIds.Contains(h.idHocSinh))
+                        .GroupBy(h => h.MaLop)
+                        .Select(g => new bctkmon
+                        {
+                            Malop = context.Lops.FirstOrDefault(l => l.IdLop == g.Key).TenLop,
+                            Siso = g.Count(),
+                            Soluongdat = g.Count(s => studentIds.Contains(s.idHocSinh)),
+                            Tile = g.Count() > 0 ? (float)g.Count(s => studentIds.Contains(s.idHocSinh)) / g.Count() * 100 : 0,
+                            TenMh = monHocId, // Gán monHocId vào bctkmon
+                            Tenhk = hocKyId    // Gán hocKyId vào bctkmon
+                        })
+                        .ToList();
 
-                    // Giả định tiêu chí "đạt" là điểm >= 5 cho cả Diem15 và Diem45
-                    int soLuongDat = context.Diem_HS
-                        .Where(d => studentIds.Contains(d.idHocSinh) && d.Diem15 >= 5 && d.Diem45 >= 5)
-                        .Count();
+                    // Bind dữ liệu vào ReportViewer
+                    ReportDataSource reportDataSource = new ReportDataSource("DataSet1", reportData);
+                    this.reportViewer1.LocalReport.DataSources.Clear();
+                    this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
-                    double tiLe = (siSo > 0) ? (double)soLuongDat / siSo * 100 : 0;
-
-                    reportTable.Rows.Add(stt++, lop.TenLop, siSo, soLuongDat, tiLe);
+                    // Làm mới báo cáo
+                    this.reportViewer1.RefreshReport();
                 }
-
-                // Bind dữ liệu vào ReportViewer
-                ReportDataSource reportDataSource = new ReportDataSource("ReportDataSet", reportTable);
-                this.reportViewer1.LocalReport.DataSources.Clear();
-                this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
-
-                // Làm mới báo cáo
-                this.reportViewer1.RefreshReport();
             }
+        }
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportViewer2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (this.reportViewer2.Visible == false)
+            {
+                this.reportViewer2.Visible = true;
+            }
+
+            this.reportViewer2.LocalReport.ReportPath = "C:\\Users\\kimta\\Documents\\Zalo Received Files\\WindowsFormsApp3\\WindowsFormsApp2\\WindowsFormsApp2\\rpttkhk.rdlc";
+
+            // Sử dụng context để lấy dữ liệu từ cơ sở dữ liệu
+            using (var context = new BCcontext())
+            {
+                // Lấy giá trị đã chọn từ ComboBox học kỳ và môn học
+                string hocKyId = comboBox3.SelectedValue?.ToString();
+
+                if (hocKyId != null)
+                {
+                    // Lấy danh sách các idHocSinh thỏa mãn điều kiện học kỳ và môn học đã chọn
+                    var studentIds = context.Diem_HS
+                        .Where(d => d.H_KY.TenHK == hocKyId && d.Diem15 >= 5 && d.Diem45 >= 5)
+                        .Select(d => d.idHocSinh)
+                        .Distinct()
+                        .ToList();
+
+                    // Lấy thông tin lớp và số lượng học sinh
+                    var reportData = context.HSinhs
+                        .Where(h => studentIds.Contains(h.idHocSinh))
+                        .GroupBy(h => h.MaLop)
+                        .Select(g => new bctkmon
+                        {
+                            Malop = context.Lops.FirstOrDefault(l => l.IdLop == g.Key).TenLop,
+                            Siso = g.Count(),
+                            Soluongdat = g.Count(s => studentIds.Contains(s.idHocSinh)),
+                            Tile = g.Count() > 0 ? (float)g.Count(s => studentIds.Contains(s.idHocSinh)) / g.Count() * 100 : 0,
+                            Tenhk = hocKyId    // Gán hocKyId vào bctkmon
+                        })
+                        .ToList();
+
+                    // Bind dữ liệu vào ReportViewer
+                    ReportDataSource reportDataSource = new ReportDataSource("DataSet1", reportData);
+                    this.reportViewer2.LocalReport.DataSources.Clear();
+                    this.reportViewer2.LocalReport.DataSources.Add(reportDataSource);
+
+                    // Làm mới báo cáo
+                    this.reportViewer2.RefreshReport();
+                }
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage16_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

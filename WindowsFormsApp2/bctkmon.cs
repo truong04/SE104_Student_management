@@ -12,5 +12,7 @@ namespace WindowsFormsApp2
         public int Siso { get; set; }
         public int Soluongdat { get; set; }
         public float Tile { get; set; }
+        public string Tenhk { get; set; }
+        public string TenMh { get; set; }
     }
 }
